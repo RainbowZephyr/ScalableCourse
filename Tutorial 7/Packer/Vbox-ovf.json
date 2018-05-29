@@ -1,0 +1,17 @@
+{
+    "variables": {
+        "ssh_name": "user",
+        "ssh_pass": "password"
+    },
+    "builders": [{
+        "type": "virtualbox-ovf",
+        "source_path": "/home/ahmed/Documents/Nomad.ova",
+        "ssh_username": "root",
+        "ssh_password": "1",
+        "shutdown_command": "echo 'packer' | sudo -S shutdown -P now"
+        "vboxmanage": [
+            ["modifyvm", "{{.Name}}", "--vram", "32"]
+        ],
+    }]
+}
+``
